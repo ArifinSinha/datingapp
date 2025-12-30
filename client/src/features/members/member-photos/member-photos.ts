@@ -7,7 +7,7 @@ import { AsyncPipe, NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-member-photos',
-  imports: [AsyncPipe, NgClass],
+  imports: [AsyncPipe],
   templateUrl: './member-photos.html',
   styleUrl: './member-photos.css'
 })
