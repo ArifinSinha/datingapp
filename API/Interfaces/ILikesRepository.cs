@@ -1,7 +1,7 @@
 using API.Entities;
 using API.Helpers;
 
-namespace API.Interface;
+namespace API.Interfaces;
 
 public interface ILikesRepository
 {
