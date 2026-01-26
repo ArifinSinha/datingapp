@@ -30,11 +30,11 @@ public class MessageRepository(AppDbContext context) : IMessageRepository
         return await context.Connections.FindAsync(connectionId);
     }
 
-    public async Task<Group?> GetGroupForConnection(string conenctionId)
+    public async Task<Group?> GetGroupForConnection(string connectionId)
     {
         return await context.Groups
             .Include(x => x.Connections)
-            .Where(x => x.Connections.Any(c => c.ConnectionId == conenctionId))
+            .Where(x => x.Connections.Any(c => c.ConnectionId == connectionId))
             .FirstOrDefaultAsync();
     }
 
@@ -94,10 +94,5 @@ public class MessageRepository(AppDbContext context) : IMessageRepository
         await context.Connections
             .Where(x => x.ConnectionId == connectionId)
             .ExecuteDeleteAsync();
-    }
-
-    public async Task<bool> SaveAllAsync()
-    {
-        return await context.SaveChangesAsync() > 0;
     }
 }
