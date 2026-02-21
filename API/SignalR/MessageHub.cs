@@ -11,7 +11,7 @@ using Microsoft.Extensions.Primitives;
 namespace API.SignalR;
 
 [Authorize]
-public class MessageHub(UnitOfWork uow, IHubContext<PresenceHub> presenceHub) : Hub
+public class MessageHub(IUnitOfWork uow, IHubContext<PresenceHub> presenceHub) : Hub
 {
     public override async Task OnConnectedAsync()
     {
